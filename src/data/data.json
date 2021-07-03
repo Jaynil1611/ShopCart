@@ -1,0 +1,56 @@
+[
+  {
+    "id": "658c622d-b973-4fe5-b8e4-eb3105ec300c",
+    "brand": "Seven Rocks",
+    "name": "Solid Men Mandarin Collar Green T-Shirt",
+    "image": "https://rukminim1.flixcart.com/image/580/696/kf75fgw0-0/t-shirt/f/6/j/xxl-t325-pwgh-seven-rocks-original-imafvpbgf6nchmfj.jpeg?q=50",
+    "price": "399",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "idealFor": "Men"
+  },
+  {
+    "id": "06471ad3-078f-41b3-8506-622ff41a9816",
+    "brand": "METRONAUT",
+    "name": "Flexi Slim Men Dark Blue Jeans",
+    "image": "https://rukminim1.flixcart.com/image/370/444/jsw3yq80/jean/y/h/g/32-mss19ajn021-metronaut-original-imafede5veaeavq9.jpeg?q=50",
+    "price": "449",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "idealFor": "Men"
+  },
+  {
+    "id": "9515805e-d881-4f20-9377-628c808d7b17",
+    "brand": "FastColors",
+    "name": "Color Block Men Round Neck Blue, Yellow T-Shirt",
+    "image": "https://rukminim1.flixcart.com/image/370/444/kasjjww0/t-shirt/p/m/c/m-fc4175-fastcolors-original-imafsaynmfhp5gnj.jpeg?q=50",
+    "price": "289",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "idealFor": "Men"
+  },
+  {
+    "id": "3b343ba6-7e6d-4c3b-aacf-9c8807413d37",
+    "brand": "PUMA",
+    "name": "Men & Women Solid Low Cut",
+    "image": "https://rukminim1.flixcart.com/image/580/696/k77xx8w0/sock/d/c/m/free-ppumm7ge-puma-original-imafpgbz9mzhbmby.jpeg?q=50",
+    "price": "329",
+    "size": "Free",
+    "idealFor": "Men & Women"
+  },
+  {
+    "id": "de59c43c-ab2e-4898-ab5f-19afe5b3ffab",
+    "brand": "JOCKEY",
+    "name": "Women Sports Non Padded Bra",
+    "image": "https://rukminim1.flixcart.com/image/580/696/jf9zxjk0/bra/s/8/x/xl-1376-ltgml-jockey-original-imaf3rybnkf4mz4e.jpeg?q=50",
+    "price": "499",
+    "size": ["32B", "36C", "40B", "XL", "XXL"],
+    "idealFor": "Women"
+  },
+  {
+    "id": "4cd8878a-0e9a-4c0a-a491-7c532569ad08",
+    "brand": "Seven Rocks",
+    "name": "Solid Women Round Neck Light Green T-Shirt",
+    "image": "https://rukminim1.flixcart.com/image/580/696/klqx30w0/t-shirt/b/f/w/l-t335hs-pg-seven-rocks-original-imagyswfyfbhherw.jpeg?q=50",
+    "price": "349",
+    "size": ["S", "M", "L", "XXL"],
+    "idealFor": "Women"
+  }
+]
