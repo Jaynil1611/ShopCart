@@ -4,11 +4,8 @@ import {
   Flex,
   Box,
   Heading,
-  Text,
-  Icon,
   Input,
   InputGroup,
-  IconButton,
   InputLeftElement,
 } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
