@@ -38,7 +38,7 @@ const productReducer = (prevState, { type, payload }) => {
         filters: {
           ...initialState.filters,
         },
-        sortBy: "",
+        sortBy: initialState.sortBy,
       };
     case actions.RESET_STATE: {
       return {

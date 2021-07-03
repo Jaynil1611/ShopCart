@@ -9,14 +9,15 @@ import {
   Divider,
   RadioGroup,
   Radio,
+  Button,
 } from "@chakra-ui/react";
-import { getUnique, textProps } from "../../utils";
+import { getUnique, primaryButtonStyleProps, textProps } from "../../utils";
 import { useProduct } from "../../contexts";
 import { actions } from "../../reducers";
 
 function Filter() {
   const {
-    state: { productList },
+    state: { productList, sortBy },
     dispatch,
   } = useProduct();
 
@@ -24,6 +25,10 @@ function Filter() {
     sort === "asc"
       ? dispatch({ type: actions.PRICE_LOW_TO_HIGH })
       : dispatch({ type: actions.PRICE_HIGH_TO_LOW });
+  };
+
+  const clearFilters = () => {
+    dispatch({ type: actions.CLEAR_ALL_FILTERS });
   };
 
   return (
@@ -36,15 +41,27 @@ function Filter() {
       h="90vh"
       my="1rem"
     >
-      <Heading fontSize="1.5rem">Filters</Heading>
+      <Flex m={2} justify="space-between">
+        <Heading fontSize="1.5rem">Filters</Heading>
+        <Button onClick={clearFilters} {...primaryButtonStyleProps} maxW="max">
+          Clear ALL
+        </Button>
+      </Flex>
+
       <Flex direction="column" p="1rem" align="flex-start">
         <Text {...textProps}>Price</Text>
         <RadioGroup>
           <VStack mt={2}>
-            <Radio value="1" onChange={() => updatePriceSort("desc")}>
+            <Radio
+              isChecked={sortBy && sortBy === actions.PRICE_HIGH_TO_LOW}
+              onChange={() => updatePriceSort("desc")}
+            >
               High To Low
             </Radio>
-            <Radio value="2" onChange={() => updatePriceSort("asc")}>
+            <Radio
+              isChecked={sortBy && sortBy === actions.PRICE_LOW_TO_HIGH}
+              onChange={() => updatePriceSort("asc")}
+            >
               Low To High
             </Radio>
           </VStack>
@@ -62,13 +79,20 @@ function Filter() {
 }
 
 const FilterCategory = ({ productList, category }) => {
-  const { dispatch } = useProduct();
+  const {
+    state: { filters },
+    dispatch,
+  } = useProduct();
 
   const addOrRemoveFilter = (category, value) => {
     dispatch({
       type: actions.UPDATE_CATEGORY_FILTERS,
       payload: { category, value },
     });
+  };
+
+  const checkCategory = (value) => {
+    return filters[category].includes(value);
   };
 
   return (
@@ -79,6 +103,7 @@ const FilterCategory = ({ productList, category }) => {
             onChange={() => addOrRemoveFilter(category, elem)}
             colorScheme="accent"
             key={index}
+            isChecked={checkCategory(elem)}
           >
             {elem}
           </Checkbox>
