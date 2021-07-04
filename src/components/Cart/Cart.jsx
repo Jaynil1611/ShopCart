@@ -64,7 +64,7 @@ function Cart() {
             direction="column"
             m={"2rem"}
           >
-            <Heading size="lg" color="gray.500">
+            <Heading m={2} size="lg" color="gray.500">
               Price Details
             </Heading>
             <Flex m={2} justify="space-between">
