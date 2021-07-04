@@ -39,7 +39,7 @@ function CartProduct(product) {
   };
 
   return (
-    <Flex>
+    <Flex m={2}>
       <Flex direction="column">
         <Flex>
           <Flex basis="20%">
