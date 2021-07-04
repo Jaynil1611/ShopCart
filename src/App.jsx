@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { Filter, Listing, Navbar } from "./components";
+import { Route, Routes } from "react-router";
+import { Cart, Filter, Listing, Navbar } from "./components";
 import { useProduct } from "./contexts";
 import data from "./data/data.json";
 import { actions } from "./reducers";
@@ -15,8 +16,19 @@ function App() {
   return (
     <>
       <Navbar />
-      <Filter />
-      <Listing />
+
+      <Routes>
+        <Route path={"/cart"} element={<Cart />} />
+        <Route
+          path={"/"}
+          element={
+            <>
+              <Filter />
+              <Listing />
+            </>
+          }
+        />
+      </Routes>
     </>
   );
 }

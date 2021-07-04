@@ -1,8 +1,21 @@
 import React from "react";
-import { Flex, Image, Text } from "@chakra-ui/react";
-import { textProps } from "../../utils";
+import { Flex, Image, Text, Button } from "@chakra-ui/react";
+import { primaryButtonStyleProps, textProps } from "../../utils";
+import { Link } from "react-router-dom";
+import { useProduct } from "../../contexts";
+import { actions } from "../../reducers";
 
-function ProductCard({ id, brand, name, image, size, idealFor, price }) {
+function ProductCard(product) {
+  const { dispatch } = useProduct();
+
+  const addToCart = (product) => {
+    dispatch({
+      type: actions.ADD_TO_CART,
+      payload: { product: { ...product, cartQuantity: 1 } },
+    });
+  };
+
+  const { brand, name, image, size, idealFor, price } = product;
   return (
     <Flex
       flex={1}
@@ -26,6 +39,11 @@ function ProductCard({ id, brand, name, image, size, idealFor, price }) {
         <Text>For {idealFor}</Text>
         <Text>Size : {Array.isArray(size) ? size.join(",") : size}</Text>
       </Flex>
+      <Link to={"/cart"}>
+        <Button onClick={() => addToCart(product)} {...primaryButtonStyleProps}>
+          Add to Cart
+        </Button>
+      </Link>
     </Flex>
   );
 }

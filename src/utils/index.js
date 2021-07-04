@@ -7,4 +7,9 @@ export {
   getSizeProducts,
   getSortedProducts,
 } from "./productUtils";
-export { getUpdatedCategoryList } from "./productReducerUtils";
+export {
+  getUpdatedCategoryList,
+  addToList,
+  removeFromList,
+  updateQuantity,
+} from "./productReducerUtils";

@@ -11,6 +11,7 @@ import {
 import { Search2Icon } from "@chakra-ui/icons";
 import { primaryButtonStyleProps } from "../../utils";
 import { GrCart } from "react-icons/all";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -25,7 +26,9 @@ function Navbar() {
         rounded="lg"
       >
         <Flex h="4rem" justify="space-around" align="center">
-          <Heading> ShopCart </Heading>
+          <Link to="/">
+            <Heading> ShopCart </Heading>
+          </Link>
           <Flex>
             <InputGroup w="30vw">
               <InputLeftElement children={<Search2Icon />}></InputLeftElement>
@@ -39,13 +42,15 @@ function Navbar() {
             <Button {...primaryButtonStyleProps} maxW="max">
               SignUp
             </Button>
-            <Button
-              leftIcon={<GrCart color="white" />}
-              {...primaryButtonStyleProps}
-              maxW="max"
-            >
-              Cart
-            </Button>
+            <Link to={"/cart"}>
+              <Button
+                leftIcon={<GrCart color="white" />}
+                {...primaryButtonStyleProps}
+                maxW="max"
+              >
+                Cart
+              </Button>
+            </Link>
           </Flex>
         </Flex>
       </Box>

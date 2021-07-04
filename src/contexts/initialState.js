@@ -1,9 +1,11 @@
 export const initialState = {
   productList: [],
+  sortBy: "",
   filters: {
     brand: [],
     size: [],
     idealFor: [],
   },
-  sortBy: "",
+  cartList: [],
+  savedForLater: [],
 };
