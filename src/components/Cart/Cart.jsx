@@ -44,11 +44,11 @@ function Cart() {
               </Text>
             )}
           </Flex>
-          <Flex m={2} direction="column">
+          <Flex m={2} mt={'4rem'} direction="column">
             {savedForLater.length > 0 && (
               <>
                 <Heading m={2} size="lg">
-                  Saved Items
+                  Saved For Later ({savedForLater.length})
                 </Heading>
                 {savedForLater.map((product) => (
                   <CartProduct key={product.id} {...product} type="save" />
