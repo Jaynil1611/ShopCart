@@ -1,18 +1,10 @@
-import { useEffect } from "react";
 import { Route, Routes } from "react-router";
 import { Cart, Filter, Listing, Navbar } from "./components";
-import { useProduct } from "./contexts";
-import data from "./data/data.json";
-import { actions } from "./reducers";
+import { useAxios } from "./server";
 
 function App() {
-  const { dispatch } = useProduct();
-  useEffect(() => {
-    dispatch({
-      type: actions.INITIALIZE_LIST,
-      payload: { name: "productList", data },
-    });
-  }, [dispatch]);
+  const { loadingStatus } = useAxios("data.json", "productList");
+
   return (
     <>
       <Navbar />
@@ -24,7 +16,7 @@ function App() {
           element={
             <>
               <Filter />
-              <Listing />
+              <Listing loading={loadingStatus} />
             </>
           }
         />

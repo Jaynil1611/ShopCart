@@ -1,5 +1,5 @@
 import React from "react";
-import { SimpleGrid, Box } from "@chakra-ui/react";
+import { SimpleGrid, Box, Spinner } from "@chakra-ui/react";
 import { useProduct } from "../../contexts";
 import ProductCard from "./ProductCard";
 import {
@@ -9,7 +9,7 @@ import {
   getSortedProducts,
 } from "../../utils";
 
-function Listing() {
+function Listing({ loading }) {
   const {
     state: {
       productList,
@@ -27,11 +27,18 @@ function Listing() {
     <>
       <Box ml="300px" my={"4rem"}>
         <SimpleGrid columns={4} mx={"2rem"} gridGap="1.5rem">
-          {idealProdutcs.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
+          {loading ? (
+            <Spinner size="lg" />
+          ) : (
+            <>
+              {idealProdutcs.map((product) => (
+                <ProductCard key={product.id} {...product} />
+              ))}
+            </>
+          )}
         </SimpleGrid>
       </Box>
+      )
     </>
   );
 }
