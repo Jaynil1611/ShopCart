@@ -6,6 +6,7 @@ export {
   getIdealProducts,
   getSizeProducts,
   getSortedProducts,
+  checkProductExists,
 } from "./productUtils";
 export {
   getUpdatedCategoryList,

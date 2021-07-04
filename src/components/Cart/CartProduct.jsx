@@ -6,8 +6,7 @@ import { primaryButtonStyleProps, textProps } from "../../utils";
 
 function CartProduct(product) {
   const { dispatch } = useProduct();
-  const { id, brand, name, image, size, idealFor, cartQuantity, price, type } =
-    product;
+  const { id, brand, name, image, cartQuantity, price, type } = product;
 
   const updateQuantity = (productId, incOrDec) => {
     dispatch({

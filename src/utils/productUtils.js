@@ -49,3 +49,7 @@ export const getSortedProducts = (productList, sortBy) => {
       )
     : productList;
 };
+
+export const checkProductExists = (list, productId) => {
+  return list.find(({ id }) => id === productId);
+};

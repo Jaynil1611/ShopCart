@@ -1,12 +1,19 @@
 import React from "react";
 import { Flex, Image, Text, Button } from "@chakra-ui/react";
-import { primaryButtonStyleProps, textProps } from "../../utils";
+import {
+  checkProductExists,
+  primaryButtonStyleProps,
+  textProps,
+} from "../../utils";
 import { Link } from "react-router-dom";
 import { useProduct } from "../../contexts";
 import { actions } from "../../reducers";
 
 function ProductCard(product) {
-  const { dispatch } = useProduct();
+  const {
+    state: { cartList },
+    dispatch,
+  } = useProduct();
 
   const addToCart = (product) => {
     dispatch({
@@ -15,7 +22,9 @@ function ProductCard(product) {
     });
   };
 
-  const { brand, name, image, size, idealFor, price } = product;
+  const { id, brand, name, image, size, idealFor, price } = product;
+  const productExists = checkProductExists(cartList, id);
+
   return (
     <Flex
       flex={1}
@@ -40,8 +49,11 @@ function ProductCard(product) {
         <Text>Size : {Array.isArray(size) ? size.join(",") : size}</Text>
       </Flex>
       <Link to={"/cart"}>
-        <Button onClick={() => addToCart(product)} {...primaryButtonStyleProps}>
-          Add to Cart
+        <Button
+          onClick={() => (productExists ? "" : addToCart(product))}
+          {...primaryButtonStyleProps}
+        >
+          {productExists ? "Go To Cart" : "Add to Cart"}
         </Button>
       </Link>
     </Flex>
