@@ -48,14 +48,15 @@ function ProductCard(product) {
         <Text>For {idealFor}</Text>
         <Text>Size : {Array.isArray(size) ? size.join(",") : size}</Text>
       </Flex>
-      <Link to={"/cart"}>
-        <Button
-          onClick={() => (productExists ? "" : addToCart(product))}
-          {...primaryButtonStyleProps}
-        >
-          {productExists ? "Go To Cart" : "Add to Cart"}
+      {productExists ? (
+        <Link to={"/cart"}>
+          <Button {...primaryButtonStyleProps}>Go To Cart</Button>
+        </Link>
+      ) : (
+        <Button onClick={() => addToCart(product)} {...primaryButtonStyleProps}>
+          Add to Cart
         </Button>
-      </Link>
+      )}
     </Flex>
   );
 }
